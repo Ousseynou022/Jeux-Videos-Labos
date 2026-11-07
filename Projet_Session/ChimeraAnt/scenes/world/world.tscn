@@ -1,21 +1,19 @@
 [gd_scene format=3 uid="uid://bpus7sb0v8gpo"]
 
+[ext_resource type="Script" uid="uid://bsj2uack2io7y" path="res://scripts/world/world.gd" id="1_1yooq"]
 [ext_resource type="Texture2D" uid="uid://d2tum41rabbdr" path="res://assets/backgrounds/hub/01_sky.png" id="1_bq33v"]
 [ext_resource type="Texture2D" uid="uid://duk8h6cfh0yht" path="res://assets/backgrounds/hub/02_mountains.png" id="2_j2gmx"]
 [ext_resource type="Texture2D" uid="uid://bg2gu0crto1m6" path="res://assets/backgrounds/hub/03_camp.png" id="3_j2gmx"]
 [ext_resource type="Texture2D" uid="uid://c8tytbvllqyup" path="res://assets/backgrounds/hub/04_forest.png" id="4_gb53w"]
 [ext_resource type="Texture2D" uid="uid://mv16ppl6rj1b" path="res://assets/backgrounds/hub/05_ground.png" id="5_5qq27"]
-[ext_resource type="Script" uid="uid://i6vd8gdwnltv" path="res://scripts/player/player.gd" id="6_dlabj"]
 [ext_resource type="PackedScene" uid="uid://bg327gf087ncq" path="res://scenes/portals/portal.tscn" id="6_j2gmx"]
-[ext_resource type="SpriteFrames" uid="uid://c0kshnfxswkbk" path="res://assets/characters/player/player_frames.tres" id="8_j2gmx"]
 [ext_resource type="PackedScene" uid="uid://dysfhat66rt3p" path="res://scenes/menus/pause_menu.tscn" id="9_1yooq"]
+[ext_resource type="PackedScene" uid="uid://bt10beutkd4o1" path="res://scenes/player/player.tscn" id="9_gb53w"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wp5od"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wp5od"]
-size = Vector2(60, 150)
-
 [node name="Hub" type="Node2D" unique_id=1943135245]
+script = ExtResource("1_1yooq")
 
 [node name="Background" type="Node2D" parent="." unique_id=1782573278]
 
@@ -71,36 +69,19 @@ shape = SubResource("WorldBoundaryShape2D_wp5od")
 
 [node name="Portal" parent="Portals" unique_id=14302112 instance=ExtResource("6_j2gmx")]
 position = Vector2(1400, 950)
-portal_name = "Nid des ouvrières"
+portal_name = "Foret Mysterieuse"
 
 [node name="Portal2" parent="Portals" unique_id=1234114584 instance=ExtResource("6_j2gmx")]
 position = Vector2(2900, 950)
-portal_name = "Ruche des soldats"
+portal_name = "Desert volcanique"
+arena_id = 2
 
 [node name="Portal3" parent="Portals" unique_id=1520572126 instance=ExtResource("6_j2gmx")]
 position = Vector2(4400, 950)
 portal_name = "Antre de la Reine"
-
-[node name="Player" type="CharacterBody2D" parent="." unique_id=509386367 groups=["player"]]
-position = Vector2(300, 920)
-script = ExtResource("6_dlabj")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=694133586]
-position = Vector2(0, -80)
-scale = Vector2(1.3, 1.3)
-sprite_frames = ExtResource("8_j2gmx")
-animation = &"attack"
-frame = 10
-frame_progress = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1092559536]
-position = Vector2(0, -75)
-shape = SubResource("RectangleShape2D_wp5od")
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=2133201820]
-limit_left = 0
-limit_top = 0
-limit_right = 5760
-limit_bottom = 1080
+arena_id = 3
 
 [node name="PauseMenu" parent="." unique_id=290932077 instance=ExtResource("9_1yooq")]
+
+[node name="Player" parent="." unique_id=1815030934 instance=ExtResource("9_gb53w")]
+position = Vector2(300, 920)

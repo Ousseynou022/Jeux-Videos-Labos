@@ -27,6 +27,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _on_start_button_pressed() -> void:
+	GameState.reset()
 	get_tree().change_scene_to_file("res://scenes/world/world.tscn")
 
 

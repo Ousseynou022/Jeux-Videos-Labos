@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpidtbohqggdl"
-path="res://.godot/imported/arene_reine.png-e46f52ec56e209618e75b98a1bfaf54a.ctex"
+uid="uid://dyw5w483awoyo"
+path="res://.godot/imported/arene_foret.png-424ab3ac3efbe2b0951550fe2f406011.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/arene_reine.png"
-dest_files=["res://.godot/imported/arene_reine.png-e46f52ec56e209618e75b98a1bfaf54a.ctex"]
+source_file="res://assets/backgrounds/arenas/arene_foret.png"
+dest_files=["res://.godot/imported/arene_foret.png-424ab3ac3efbe2b0951550fe2f406011.ctex"]
 
 [params]
 

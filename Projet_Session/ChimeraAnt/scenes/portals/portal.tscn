@@ -26,8 +26,18 @@ position = Vector2(0, -150)
 shape = SubResource("RectangleShape2D_wp5od")
 
 [node name="InfoLabel" type="Label" parent="." unique_id=1040061878]
-offset_left = -100.0
+offset_left = -150.0
 offset_top = -460.0
-offset_right = 100.0
+offset_right = 150.0
 offset_bottom = -400.0
+horizontal_alignment = 1
+
+[node name="PromptLabel" type="Label" parent="." unique_id=268410412]
+offset_left = -150.0
+offset_top = -520.0
+offset_right = 150.0
+offset_bottom = -480.0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 24
+text = "E pour ENTRER"
 horizontal_alignment = 1

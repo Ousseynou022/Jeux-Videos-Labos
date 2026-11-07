@@ -3,16 +3,20 @@ extends CharacterBody2D
 
 const SPEED := 400.0
 const JUMP_VELOCITY := -700.0
-const HUB_WIDTH := 5760.0
+@export var level_width := 5760.0  # largeur du niveau (hub 5760, arène 1920)
+
+
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_attacking := false
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var camera: Camera2D = $Camera2D
 
 
 func _ready() -> void:
 	add_to_group("player")
+	camera.limit_right = int(level_width)
 	anim.animation_finished.connect(_on_animation_finished)
 	anim.play("idle")
 
@@ -40,7 +44,7 @@ func _physics_process(delta: float) -> void:
 		anim.flip_h = direction < 0
 
 	move_and_slide()
-	position.x = clamp(position.x, 40.0, HUB_WIDTH - 40.0)
+	position.x = clamp(position.x, 40.0, level_width - 40.0)
 
 	_update_animation(direction)
 
