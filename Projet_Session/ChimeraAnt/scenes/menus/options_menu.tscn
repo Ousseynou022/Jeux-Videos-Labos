@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://ckw5vlvhcij8b"]
+
+[ext_resource type="Script" uid="uid://pdar3r4hbiho" path="res://scripts/menus/options_menu.gd" id="1_bp0ux"]
+
+[node name="OptionsMenu" type="Control" unique_id=2045940563]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_bp0ux")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1145884337]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=1735913628]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer" unique_id=1181068164]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=610378092]
+layout_mode = 2
+text = "OPTIONS"
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1822137186]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=1401112639]
+layout_mode = 2
+text = "Volume General"
+
+[node name="MasterSlider" type="HSlider" parent="CenterContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=1610146563]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+
+[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=1347939284]
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="CenterContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=1218404311]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=408752975]
+layout_mode = 2
+text = "Effets sonores"
+
+[node name="SfxSlider" type="HSlider" parent="CenterContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=1071947188]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1710498356]
+unique_name_in_owner = true
+layout_mode = 2
+text = "RETOUR"

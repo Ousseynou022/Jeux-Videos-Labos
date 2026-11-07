@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://dysfhat66rt3p"]
+
+[ext_resource type="Script" uid="uid://drud5jtn1u7fa" path="res://scripts/menus/pause_menu.gd" id="1_7unhi"]
+[ext_resource type="PackedScene" uid="uid://ckw5vlvhcij8b" path="res://scenes/menus/options_menu.tscn" id="1_fwndu"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=290932077]
+process_mode = 3
+script = ExtResource("1_7unhi")
+
+[node name="Dim" type="ColorRect" parent="." unique_id=1696243973]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.019607844, 0.019607844, 0.019607844, 0.5882353)
+
+[node name="PausePanel" type="CenterContainer" parent="." unique_id=1648552063]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PausePanel" unique_id=204231681]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PausePanel/PanelContainer" unique_id=1891300031]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PausePanel/PanelContainer/VBoxContainer" unique_id=1466738834]
+layout_mode = 2
+text = "PAUSE"
+
+[node name="ResumeButton" type="Button" parent="PausePanel/PanelContainer/VBoxContainer" unique_id=617877516]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 60)
+layout_mode = 2
+text = "Reprendre"
+
+[node name="RestartButton" type="Button" parent="PausePanel/PanelContainer/VBoxContainer" unique_id=388858706]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 60)
+layout_mode = 2
+text = "Recommencer"
+
+[node name="OptionsButton" type="Button" parent="PausePanel/PanelContainer/VBoxContainer" unique_id=1923798249]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 60)
+layout_mode = 2
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="PausePanel/PanelContainer/VBoxContainer" unique_id=2094261446]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 60)
+layout_mode = 2
+text = "quitter"
+
+[node name="OptionsMenu" parent="." unique_id=2045940563 instance=ExtResource("1_fwndu")]
+unique_name_in_owner = true
+offset_left = 204.0
+offset_top = 60.0
+offset_right = 244.0
+offset_bottom = 100.0
