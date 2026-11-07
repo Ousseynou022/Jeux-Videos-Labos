@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://bpus7sb0v8gpo"]
+
+[ext_resource type="Texture2D" uid="uid://d2tum41rabbdr" path="res://assets/backgrounds/hub/01_sky.png" id="1_bq33v"]
+[ext_resource type="Texture2D" uid="uid://duk8h6cfh0yht" path="res://assets/backgrounds/hub/02_mountains.png" id="2_j2gmx"]
+[ext_resource type="Texture2D" uid="uid://bg2gu0crto1m6" path="res://assets/backgrounds/hub/03_camp.png" id="3_j2gmx"]
+[ext_resource type="Texture2D" uid="uid://c8tytbvllqyup" path="res://assets/backgrounds/hub/04_forest.png" id="4_gb53w"]
+[ext_resource type="Texture2D" uid="uid://mv16ppl6rj1b" path="res://assets/backgrounds/hub/05_ground.png" id="5_5qq27"]
+[ext_resource type="Script" uid="uid://i6vd8gdwnltv" path="res://scripts/player/player.gd" id="6_dlabj"]
+[ext_resource type="PackedScene" uid="uid://bg327gf087ncq" path="res://scenes/portals/portal.tscn" id="6_j2gmx"]
+[ext_resource type="SpriteFrames" uid="uid://c0kshnfxswkbk" path="res://assets/characters/player/player_frames.tres" id="8_j2gmx"]
+[ext_resource type="PackedScene" uid="uid://dysfhat66rt3p" path="res://scenes/menus/pause_menu.tscn" id="9_1yooq"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wp5od"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wp5od"]
+size = Vector2(60, 150)
+
+[node name="Hub" type="Node2D" unique_id=1943135245]
+
+[node name="Background" type="Node2D" parent="." unique_id=1782573278]
+
+[node name="Sky" type="Parallax2D" parent="Background" unique_id=181735316]
+scroll_scale = Vector2(0.5, 1)
+repeat_size = Vector2(1813, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Sky" unique_id=882626092]
+texture = ExtResource("1_bq33v")
+centered = false
+
+[node name="Mountains" type="Parallax2D" parent="Background" unique_id=1697753137]
+scroll_scale = Vector2(0.2, 1)
+repeat_size = Vector2(1506, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Mountains" unique_id=129669959]
+position = Vector2(0, -220)
+texture = ExtResource("2_j2gmx")
+centered = false
+
+[node name="Hills" type="Parallax2D" parent="Background" unique_id=2054746537]
+scroll_scale = Vector2(0.45, 1)
+repeat_size = Vector2(1639, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Hills" unique_id=1025007409]
+texture = ExtResource("3_j2gmx")
+centered = false
+
+[node name="Forest" type="Parallax2D" parent="Background" unique_id=59248522]
+scroll_scale = Vector2(0.75, 1)
+repeat_size = Vector2(1543, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Forest" unique_id=1915753740]
+texture = ExtResource("4_gb53w")
+centered = false
+
+[node name="Ground" type="Parallax2D" parent="Background" unique_id=2093807383]
+repeat_size = Vector2(1744, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Ground" unique_id=1286698221]
+position = Vector2(-7, 869)
+scale = Vector2(1.0040138, 1.3311689)
+texture = ExtResource("5_5qq27")
+centered = false
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1728232834]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=342712537]
+position = Vector2(0, 920)
+shape = SubResource("WorldBoundaryShape2D_wp5od")
+
+[node name="Portals" type="Node2D" parent="." unique_id=1509890323]
+
+[node name="Portal" parent="Portals" unique_id=14302112 instance=ExtResource("6_j2gmx")]
+position = Vector2(1400, 950)
+portal_name = "Nid des ouvrières"
+
+[node name="Portal2" parent="Portals" unique_id=1234114584 instance=ExtResource("6_j2gmx")]
+position = Vector2(2900, 950)
+portal_name = "Ruche des soldats"
+
+[node name="Portal3" parent="Portals" unique_id=1520572126 instance=ExtResource("6_j2gmx")]
+position = Vector2(4400, 950)
+portal_name = "Antre de la Reine"
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=509386367 groups=["player"]]
+position = Vector2(300, 920)
+script = ExtResource("6_dlabj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=694133586]
+position = Vector2(0, -80)
+scale = Vector2(1.3, 1.3)
+sprite_frames = ExtResource("8_j2gmx")
+animation = &"attack"
+frame = 10
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1092559536]
+position = Vector2(0, -75)
+shape = SubResource("RectangleShape2D_wp5od")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=2133201820]
+limit_left = 0
+limit_top = 0
+limit_right = 5760
+limit_bottom = 1080
+
+[node name="PauseMenu" parent="." unique_id=290932077 instance=ExtResource("9_1yooq")]
