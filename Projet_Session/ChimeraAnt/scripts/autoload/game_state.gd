@@ -2,15 +2,23 @@ extends Node
 
 const HUB_SCENE := "res://scenes/world/world.tscn"
 const ARENA_SCENE := "res://scenes/arena/arena.tscn"
+const MAIN_MENU_SCENE := "res://scenes/menus/main_menu.tscn"
+const MAX_LIVES := 3
 
-var arena_id := 0              # arène choisie : 1, 2 ou 3
+var arena_id := 0          
 var hub_spawn := Vector2.ZERO  # où réapparaître dans le hub au retour
 var has_hub_spawn := false
+
+var player_max_health := 100
+var player_health := 100
+var lives := MAX_LIVES
 
 
 func reset() -> void:
 	arena_id = 0
 	has_hub_spawn = false
+	player_health = player_max_health
+	lives = MAX_LIVES
 
 
 func enter_arena(id: int, return_position: Vector2) -> void:
@@ -22,3 +30,12 @@ func enter_arena(id: int, return_position: Vector2) -> void:
 
 func return_to_hub() -> void:
 	get_tree().change_scene_to_file(HUB_SCENE)
+
+
+func player_defeated() -> void:
+	lives -= 1
+	if lives <= 0:
+		get_tree().change_scene_to_file(MAIN_MENU_SCENE)
+	else:
+		player_health = int(player_max_health * 0.5)
+		return_to_hub()

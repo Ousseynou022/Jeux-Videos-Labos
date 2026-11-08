@@ -20,7 +20,7 @@ func physics_update(delta: float) -> void:
 	if not has_hit and enemy.anim.frame >= HIT_FRAME:
 		has_hit = true
 		if enemy.distance_to_player() <= HIT_DISTANCE:
-			enemy.player.take_damage(enemy.damage)
+			enemy.player.take_damage(enemy.damage, enemy.global_position.x)
 
 	if not enemy.anim.is_playing():
 		# les fourmis n'attaquent pas en même temps

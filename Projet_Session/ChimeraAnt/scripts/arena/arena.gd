@@ -3,7 +3,6 @@ extends Node2D
 const FOURMI_SOLDAT := preload("res://scenes/enemies/fourmi_soldat.tscn")
 const FOURMI_AILEE := preload("res://scenes/enemies/fourmi_ailee.tscn")
 
-# Réglages de chaque arène : nom, fond, hauteur du sol et ennemis
 const ARENAS := {
 	1: {
 		"name": "Forêt mystérieuse",
@@ -64,13 +63,23 @@ func _spawn_enemies(data: Dictionary, floor_y: float) -> void:
 	for i in data["enemy_count"]:
 		var enemy := scene.instantiate()
 		enemy.position = Vector2(900 + i * spacing, floor_y - height)
+		enemy.died.connect(_on_enemy_died)
 		enemies.add_child(enemy)
 
 
-# Le nom de l'arène apparaît puis disparaît en fondu
+# Le nom de l'arène en fondu
 func _show_title() -> void:
 	title_label.modulate.a = 0.0
 	var tween := create_tween()
 	tween.tween_property(title_label, "modulate:a", 1.0, 0.6)
 	tween.tween_interval(1.5)
 	tween.tween_property(title_label, "modulate:a", 0.0, 0.8)
+	
+func _on_enemy_died() -> void:
+	if get_tree().get_nodes_in_group("enemies").is_empty():
+		_on_arena_cleared()
+
+
+func _on_arena_cleared() -> void:
+	title_label.text = "Victoire !"
+	_show_title()

@@ -18,7 +18,7 @@ func physics_update(_delta: float) -> void:
 	if not has_hit and enemy.anim.frame >= HIT_FRAME:
 		has_hit = true
 		if enemy.distance_to_player() <= enemy.attack_range * 1.2:
-			enemy.player.take_damage(enemy.damage)
+			enemy.player.take_damage(enemy.damage, enemy.global_position.x)
 
 	# Transition : animation terminée -> POURSUITE
 	if not enemy.anim.is_playing():
