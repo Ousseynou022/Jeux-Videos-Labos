@@ -6,8 +6,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wp5od"]
 size = Vector2(60, 150)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k56px"]
+size = Vector2(150, 120)
+
 [node name="Player" type="CharacterBody2D" unique_id=1815030934 groups=["player"]]
+collision_layer = 2
 script = ExtResource("1_l3o4k")
+level_width = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=696897768]
 position = Vector2(0, -80)
@@ -26,3 +31,11 @@ limit_left = 0
 limit_top = 0
 limit_right = 5760
 limit_bottom = 1080
+
+[node name="SwordArea" type="Area2D" parent="." unique_id=1939663271]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordArea" unique_id=1863313492]
+position = Vector2(90, -80)
+shape = SubResource("RectangleShape2D_k56px")

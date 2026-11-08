@@ -8,6 +8,7 @@
 size = Vector2(180, 300)
 
 [node name="Portal" type="Area2D" unique_id=14302112]
+collision_mask = 2
 script = ExtResource("1_trclu")
 
 [node name="VortexPivot" type="Node2D" parent="." unique_id=120231519]
