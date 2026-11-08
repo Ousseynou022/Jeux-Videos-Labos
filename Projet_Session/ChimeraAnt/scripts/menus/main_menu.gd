@@ -9,7 +9,7 @@ extends Control
 @onready var quit_button: Button = %QuitButton
 
 @onready var options_menu: OptionsMenu = %OptionsMenu
-@onready var buttons_box: VBoxContainer = %ButtonsBox   # mets ButtonsBox en nom unique
+@onready var buttons_box: VBoxContainer = %ButtonsBox   
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

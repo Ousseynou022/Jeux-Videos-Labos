@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://0busmaa01l50" path="res://scripts/arena/arena.gd" id="1_aj7ud"]
 [ext_resource type="PackedScene" uid="uid://bt10beutkd4o1" path="res://scenes/player/player.tscn" id="2_5tue2"]
 [ext_resource type="PackedScene" uid="uid://dysfhat66rt3p" path="res://scenes/menus/pause_menu.tscn" id="3_5tue2"]
+[ext_resource type="PackedScene" uid="uid://cilhfplmwkktv" path="res://scenes/ui/hud.tscn" id="5_asdgj"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wp5od"]
 
@@ -41,3 +42,5 @@ horizontal_alignment = 1
 
 [node name="PauseMenu" parent="." unique_id=290932077 instance=ExtResource("3_5tue2")]
 visible = false
+
+[node name="HUD" parent="." unique_id=411967270 instance=ExtResource("5_asdgj")]

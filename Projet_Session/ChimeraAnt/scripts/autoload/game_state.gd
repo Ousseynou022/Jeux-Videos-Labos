@@ -13,14 +13,21 @@ var player_max_health := 100
 var player_health := 100
 var lives := MAX_LIVES
 
+var level := 1
+var xp := 0
+
 
 func reset() -> void:
 	arena_id = 0
 	has_hub_spawn = false
 	player_health = player_max_health
 	lives = MAX_LIVES
+	level = 1
+	xp = 0
 
-
+func xp_needed() -> int:
+	return 100 * level
+	
 func enter_arena(id: int, return_position: Vector2) -> void:
 	arena_id = id
 	hub_spawn = return_position
