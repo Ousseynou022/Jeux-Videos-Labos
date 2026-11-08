@@ -9,7 +9,11 @@ var timer := 0.0
 
 func enter() -> void:
 	timer = DURATION
-	enemy.anim.play("idle")
+	if enemy.anim.sprite_frames.has_animation("hurt"):
+		enemy.anim.play("hurt")
+	else:
+		enemy.anim.play("idle")
+		
 	enemy.anim.modulate = Color(1.0, 0.35, 0.35)
 	enemy.velocity.x = enemy.knock_direction * KNOCKBACK
 

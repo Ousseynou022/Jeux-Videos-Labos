@@ -1,6 +1,7 @@
 extends Node2D
 
 const FOURMI_SOLDAT := preload("res://scenes/enemies/fourmi_soldat.tscn")
+const FOURMI_AILEE := preload("res://scenes/enemies/fourmi_ailee.tscn")
 
 # Réglages de chaque arène : nom, fond, hauteur du sol et ennemis
 const ARENAS := {
@@ -10,20 +11,26 @@ const ARENAS := {
 		"floor_y": 810.0,
 		"enemy_scene": FOURMI_SOLDAT,
 		"enemy_count": 4,
+		"spawn_spacing": 280.0,
+		"spawn_height": 0.0,     # au sol
 	},
 	2: {
 		"name": "Désert volcanique",
 		"background": preload("res://assets/backgrounds/arenas/arene_volcan.png"),
 		"floor_y": 930.0,
-		"enemy_scene": null,   # fourmis ailées : carte « Essaim »
-		"enemy_count": 0,
+		"enemy_scene": FOURMI_AILEE,  
+		"enemy_count": 4,
+		"spawn_spacing": 110.0,
+		"spawn_height": 300.0,   # en vol
 	},
 	3: {
 		"name": "Arène de la lune rouge",
 		"background": preload("res://assets/backgrounds/arenas/arene_reine.png"),
 		"floor_y": 745.0,
-		"enemy_scene": null,   # la Reine : carte « Combat contre la Reine »
+		"enemy_scene": null,   
 		"enemy_count": 0,
+		"spawn_spacing": 0.0,
+		"spawn_height": 0.0,  
 	},
 }
 
@@ -47,15 +54,16 @@ func _ready() -> void:
 	_spawn_enemies(data, floor_y)
 	_show_title()
 
-
 # Place les ennemis de l'arène, répartis sur la droite
 func _spawn_enemies(data: Dictionary, floor_y: float) -> void:
 	var scene: PackedScene = data["enemy_scene"]
 	if scene == null:
 		return
+	var spacing: float = data["spawn_spacing"]
+	var height: float = data["spawn_height"]
 	for i in data["enemy_count"]:
 		var enemy := scene.instantiate()
-		enemy.position = Vector2(900 + i * 280, floor_y)
+		enemy.position = Vector2(900 + i * spacing, floor_y - height)
 		enemies.add_child(enemy)
 
 
