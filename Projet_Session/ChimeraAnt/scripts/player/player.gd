@@ -57,12 +57,14 @@ func _physics_process(delta: float) -> void:
 	# Saut
 	if Input.is_action_just_pressed("jump") and is_on_floor() and not is_attacking:
 		velocity.y = JUMP_VELOCITY
+		Audio.play_sfx("jump")
 
 	# Attaque
 	if Input.is_action_just_pressed("attack") and not is_attacking:
 		is_attacking = true
 		has_hit = false
 		anim.play("attack")
+		Audio.play_sfx("sword_swing")
 
 	# épée 
 	if is_attacking and not has_hit and anim.frame >= SWORD_HIT_FRAME:
@@ -85,10 +87,13 @@ func _physics_process(delta: float) -> void:
 
 
 func _hit_enemies() -> void:
+	var touched := false
 	for body in sword_area.get_overlapping_bodies():
-		if body is Enemy:
+		if body is Enemy and not body.is_dead():
 			body.take_damage(SWORD_DAMAGE, global_position.x)
-
+			touched = true
+	if touched:
+		Audio.play_sfx("sword_hit")  
 
 func take_damage(amount: int, from_x: float = global_position.x) -> void:
 	if is_dead or invincible_left > 0.0:
@@ -100,6 +105,7 @@ func take_damage(amount: int, from_x: float = global_position.x) -> void:
 	if GameState.player_health <= 0:
 		_die()
 		return
+		Audio.play_sfx("player_hurt")
 
 	# Recul 
 	var push := signf(global_position.x - from_x)
@@ -128,6 +134,7 @@ func _die() -> void:
 	is_attacking = false
 	anim.modulate.a = 1.0
 	anim.play("death")
+	Audio.play_sfx("player_death", 0.0)
 	died.emit()
 	await anim.animation_finished
 	await get_tree().create_timer(1.0).timeout

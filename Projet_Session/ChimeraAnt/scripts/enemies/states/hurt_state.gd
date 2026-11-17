@@ -1,5 +1,5 @@
 extends State
-## BLESSÉ : recul + clignotement rouge pendant un court instant.
+## BLESSÉ 
 
 const DURATION := 0.3
 const KNOCKBACK := 350.0
@@ -9,6 +9,7 @@ var timer := 0.0
 
 func enter() -> void:
 	timer = DURATION
+	Audio.play_sfx("enemy_hurt", 0.2)
 	if enemy.anim.sprite_frames.has_animation("hurt"):
 		enemy.anim.play("hurt")
 	else:

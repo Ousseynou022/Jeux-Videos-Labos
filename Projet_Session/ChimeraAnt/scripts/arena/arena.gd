@@ -33,6 +33,10 @@ const ARENAS := {
 	},
 }
 
+@export var music_foret: AudioStream
+@export var music_volcan: AudioStream
+@export var music_reine: AudioStream
+
 @onready var background: Sprite2D = $Background
 @onready var floor_shape: CollisionShape2D = $Floor/CollisionShape2D
 @onready var player: Player = $Player
@@ -50,6 +54,8 @@ func _ready() -> void:
 	exit_portal.position = Vector2(180, floor_y)
 	player.position = Vector2(450, floor_y)
 	title_label.text = data["name"]
+	var musics := {1: music_foret, 2: music_volcan, 3: music_reine}
+	Audio.play_music(musics.get(GameState.arena_id))
 	_spawn_enemies(data, floor_y)
 	_show_title()
 
@@ -83,3 +89,4 @@ func _on_enemy_died() -> void:
 func _on_arena_cleared() -> void:
 	title_label.text = "Victoire !"
 	_show_title()
+	Audio.play_sfx("victory", 0.0)

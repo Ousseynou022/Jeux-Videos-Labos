@@ -60,7 +60,7 @@ text = "quitter"
 
 [node name="OptionsMenu" parent="." unique_id=2045940563 instance=ExtResource("1_fwndu")]
 unique_name_in_owner = true
-offset_left = 204.0
-offset_top = 60.0
-offset_right = 244.0
-offset_bottom = 100.0
+offset_left = 936.0
+offset_top = 175.0
+offset_right = 991.0
+offset_bottom = 215.0

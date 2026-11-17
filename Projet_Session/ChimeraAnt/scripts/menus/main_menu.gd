@@ -2,6 +2,8 @@ class_name MainMenu
 
 extends Control
 
+@export var music: AudioStream
+
 @onready var start_button: Button = %StartButton
 @onready var instructions_button: Button = %InstructionsButton
 @onready var options_button: Button = %OptionsButton
@@ -13,6 +15,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Audio.play_music(music)
 	#start_button.pressed.connect(_on_start_button_pressed)
 	#instructions_button.pressed.connect(_on_instructions_button_pressed)
 	#options_button.pressed.connect(_on_options_button_pressed)

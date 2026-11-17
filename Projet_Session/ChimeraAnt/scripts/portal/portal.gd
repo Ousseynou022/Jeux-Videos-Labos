@@ -41,8 +41,8 @@ func _on_body_exited(body: Node2D) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if player_inside and event.is_action_pressed("interact"):
 		get_viewport().set_input_as_handled()
+		Audio.play_sfx("portal", 0.0)
 		if arena_id == 0:
 			GameState.return_to_hub()
 		else:
-			# on reviendra juste à droite de ce portail
 			GameState.enter_arena(arena_id, global_position + Vector2(180, 0))

@@ -3,13 +3,18 @@
 [ext_resource type="PackedScene" uid="uid://bg327gf087ncq" path="res://scenes/portals/portal.tscn" id="1_8trdl"]
 [ext_resource type="Script" uid="uid://0busmaa01l50" path="res://scripts/arena/arena.gd" id="1_aj7ud"]
 [ext_resource type="PackedScene" uid="uid://bt10beutkd4o1" path="res://scenes/player/player.tscn" id="2_5tue2"]
+[ext_resource type="AudioStream" uid="uid://dfojexycoemc3" path="res://assets/audio/music/theme.ogg" id="2_u52cf"]
 [ext_resource type="PackedScene" uid="uid://dysfhat66rt3p" path="res://scenes/menus/pause_menu.tscn" id="3_5tue2"]
+[ext_resource type="AudioStream" uid="uid://deijguc51pd6o" path="res://assets/audio/music/boss_dark_aria.ogg" id="3_ii07k"]
 [ext_resource type="PackedScene" uid="uid://cilhfplmwkktv" path="res://scenes/ui/hud.tscn" id="5_asdgj"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wp5od"]
 
 [node name="Arena" type="Node2D" unique_id=1297402642]
 script = ExtResource("1_aj7ud")
+music_foret = ExtResource("2_u52cf")
+music_volcan = ExtResource("2_u52cf")
+music_reine = ExtResource("3_ii07k")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=191610474]
 centered = false

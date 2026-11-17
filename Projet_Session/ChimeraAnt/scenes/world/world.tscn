@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bsj2uack2io7y" path="res://scripts/world/world.gd" id="1_1yooq"]
 [ext_resource type="Texture2D" uid="uid://d2tum41rabbdr" path="res://assets/backgrounds/hub/01_sky.png" id="1_bq33v"]
+[ext_resource type="AudioStream" uid="uid://dfojexycoemc3" path="res://assets/audio/music/theme.ogg" id="2_5qq27"]
 [ext_resource type="Texture2D" uid="uid://duk8h6cfh0yht" path="res://assets/backgrounds/hub/02_mountains.png" id="2_j2gmx"]
 [ext_resource type="Texture2D" uid="uid://bg2gu0crto1m6" path="res://assets/backgrounds/hub/03_camp.png" id="3_j2gmx"]
 [ext_resource type="Texture2D" uid="uid://c8tytbvllqyup" path="res://assets/backgrounds/hub/04_forest.png" id="4_gb53w"]
@@ -15,6 +16,7 @@
 
 [node name="Hub" type="Node2D" unique_id=1943135245]
 script = ExtResource("1_1yooq")
+music = ExtResource("2_5qq27")
 
 [node name="Background" type="Node2D" parent="." unique_id=1782573278]
 
@@ -23,6 +25,7 @@ scroll_scale = Vector2(0.5, 1)
 repeat_size = Vector2(1813, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/Sky" unique_id=882626092]
+position = Vector2(-1, 2)
 texture = ExtResource("1_bq33v")
 centered = false
 
@@ -83,6 +86,7 @@ portal_name = "Antre de la Reine"
 arena_id = 3
 
 [node name="PauseMenu" parent="." unique_id=290932077 instance=ExtResource("9_1yooq")]
+visible = false
 
 [node name="Player" parent="." unique_id=1815030934 instance=ExtResource("9_gb53w")]
 position = Vector2(300, 920)

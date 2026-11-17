@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" uid="uid://pdar3r4hbiho" path="res://scripts/menus/options_menu.gd" id="1_bp0ux"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bp0ux"]
+bg_color = Color(0.86270213, 0.48594254, 0.3019114, 1)
+
 [node name="OptionsMenu" type="Control" unique_id=2045940563]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
+anchor_right = 0.010000001
+offset_left = -39.0
+offset_right = 20.8
 offset_bottom = 40.0
 script = ExtResource("1_bp0ux")
 
@@ -22,6 +26,7 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer" unique_id=1181068164]
 layout_mode = 2
+theme_override_constants/separation = 40
 
 [node name="TitleLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=610378092]
 layout_mode = 2
@@ -29,6 +34,8 @@ text = "OPTIONS"
 
 [node name="GridContainer" type="GridContainer" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1822137186]
 layout_mode = 2
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 40
 columns = 2
 
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=1401112639]
@@ -49,6 +56,8 @@ text = "Music"
 [node name="MusicSlider" type="HSlider" parent="CenterContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=1218404311]
 unique_name_in_owner = true
 layout_mode = 2
+max_value = 1.0
+step = 0.05
 
 [node name="Label3" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=408752975]
 layout_mode = 2
@@ -57,8 +66,11 @@ text = "Effets sonores"
 [node name="SfxSlider" type="HSlider" parent="CenterContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=1071947188]
 unique_name_in_owner = true
 layout_mode = 2
+max_value = 1.0
+step = 0.05
 
 [node name="BackButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1710498356]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_bp0ux")
 text = "RETOUR"

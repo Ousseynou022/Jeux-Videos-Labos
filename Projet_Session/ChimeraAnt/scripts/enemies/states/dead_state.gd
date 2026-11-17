@@ -7,6 +7,7 @@ var fading := false
 func enter() -> void:
 	enemy.velocity.x = 0.0
 	enemy.anim.play("death")
+	Audio.play_sfx("enemy_death", 0.2)
 	enemy.collision_layer = 0          # on ne peut plus la toucher
 	enemy.remove_from_group("enemies")
 	enemy.died.emit()

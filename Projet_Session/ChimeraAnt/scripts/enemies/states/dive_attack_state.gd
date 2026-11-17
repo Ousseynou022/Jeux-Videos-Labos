@@ -12,6 +12,7 @@ func enter() -> void:
 	has_hit = false
 	dive_direction = (enemy.player_target() - enemy.global_position).normalized()
 	enemy.anim.play("attack")
+	Audio.play_sfx("swarm_dive", 0.2)
 
 
 func physics_update(delta: float) -> void:

@@ -2,7 +2,7 @@ extends Node
 
 const SAVE_PATH := "user://settings.cfg"
 
-# Volumes entre 0.0 (muet) et 1.0 (maximum)
+
 var volumes := {"Master": 1.0, "Music": 0.8, "SFX": 0.8}
 
 
@@ -17,7 +17,7 @@ func get_volume(bus_name: String) -> float:
 
 
 func set_volume(bus_name: String, value: float) -> void:
-	volumes[bus_name] = value
+	volumes[bus_name] = clampf(value, 0.0, 1.0) 
 	_apply_volume(bus_name)
 
 
@@ -36,10 +36,10 @@ func save_settings() -> void:
 		config.set_value("audio", bus_name, volumes[bus_name])
 	config.save(SAVE_PATH)
 
-
 func load_settings() -> void:
 	var config := ConfigFile.new()
 	if config.load(SAVE_PATH) != OK:
-		return  # premier lancement : on garde les valeurs par défaut
+		return  
 	for bus_name in volumes:
-		volumes[bus_name] = config.get_value("audio", bus_name, volumes[bus_name])
+		var value: float = config.get_value("audio", bus_name, volumes[bus_name])
+		volumes[bus_name] = clampf(value, 0.0, 1.0) 

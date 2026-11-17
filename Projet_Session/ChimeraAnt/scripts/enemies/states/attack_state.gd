@@ -10,6 +10,7 @@ func enter() -> void:
 	has_hit = false
 	enemy.velocity.x = 0.0
 	enemy.anim.play("attack")
+	Audio.play_sfx("enemy_attack", 0.15)
 
 
 func physics_update(_delta: float) -> void:

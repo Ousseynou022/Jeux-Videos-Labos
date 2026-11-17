@@ -1,5 +1,5 @@
 extends CanvasLayer
-## HUD : vie, vies, niveau et XP. Se met à jour grâce au signal du joueur.
+## HUD 
 
 const HEART_FULL := preload("res://assets/ui/heart_full.png")
 const HEART_EMPTY := preload("res://assets/ui/heart_empty.png")
