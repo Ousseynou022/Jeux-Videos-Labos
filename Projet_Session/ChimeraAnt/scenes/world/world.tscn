@@ -80,8 +80,9 @@ position = Vector2(3150, 457)
 height = 500.0
 
 [node name="Waterfall2" parent="Waterfalls" unique_id=224265755 instance=ExtResource("8_dlabj")]
-position = Vector2(5202, 324)
-height = 610.0
+position = Vector2(5007, 592)
+height = 590.0
+metadata/_edit_group_ = true
 
 [node name="Platforms" type="Node2D" parent="." unique_id=1510276687]
 
@@ -94,17 +95,15 @@ position = Vector2(2420, 630)
 [node name="L1" parent="Platforms" unique_id=1934770646 instance=ExtResource("10_m114p")]
 position = Vector2(2950, 520)
 
-[node name="C" parent="Platforms" unique_id=1562487703 instance=ExtResource("9_mxkvs")]
-position = Vector2(3700, 780)
-
 [node name="D" parent="Platforms" unique_id=596413819 instance=ExtResource("9_mxkvs")]
-position = Vector2(4100, 640)
+position = Vector2(4098, 715)
 
 [node name="E" parent="Platforms" unique_id=1454667944 instance=ExtResource("9_mxkvs")]
-position = Vector2(4480, 500)
+position = Vector2(5273, 782)
 
 [node name="L2" parent="Platforms" unique_id=781573400 instance=ExtResource("10_m114p")]
-position = Vector2(5000, 390)
+position = Vector2(4805, 658)
+metadata/_edit_group_ = true
 
 [node name="Fontain" parent="." unique_id=281068914 instance=ExtResource("11_71ii3")]
 position = Vector2(800, 920)
@@ -121,9 +120,10 @@ portal_name = "Desert volcanique"
 arena_id = 2
 
 [node name="Portal3" parent="Portals" unique_id=1520572126 instance=ExtResource("6_j2gmx")]
-position = Vector2(4920, 329)
+position = Vector2(4725, 597)
 portal_name = "Antre de la Reine"
 arena_id = 3
+metadata/_edit_group_ = true
 
 [node name="Player" parent="." unique_id=1815030934 instance=ExtResource("9_gb53w")]
 position = Vector2(300, 920)

@@ -52,9 +52,8 @@ func _heal_player() -> void:
 	player.heal(GameState.player_max_health)
 	Audio.play_sfx("heal", 0.0)
 	heal_burst.restart()
-	# Flash lumineux du halo
-	glow.scale = Vector2(2.4, 2.4)
-	create_tween().tween_property(glow, "scale", Vector2(1.6, 1.6), 0.6)
+	glow.scale = Vector2(3.0, 3.0)
+	create_tween().tween_property(glow, "scale", Vector2(2.2, 2.2), 0.6)
 	_update_prompt()
 
 
@@ -65,12 +64,11 @@ func _update_prompt() -> void:
 		prompt_label.text = "[E] Se soigner"
 
 
-## Particules créées par le code (pas de réglages à faire dans l'Inspecteur)
 func _create_particles(burst: bool) -> CPUParticles2D:
 	var p := CPUParticles2D.new()
-	p.position = Vector2(0, -150)
+	p.position = Vector2(0, -190)
 	p.emission_shape = CPUParticles2D.EMISSION_SHAPE_SPHERE
-	p.emission_sphere_radius = 90.0
+	p.emission_sphere_radius = 170.0
 	p.direction = Vector2(0, -1)
 	p.spread = 30.0
 	p.gravity = Vector2(0, -40)
