@@ -8,9 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://c8tytbvllqyup" path="res://assets/backgrounds/hub/04_forest.png" id="4_gb53w"]
 [ext_resource type="Texture2D" uid="uid://mv16ppl6rj1b" path="res://assets/backgrounds/hub/05_ground.png" id="5_5qq27"]
 [ext_resource type="PackedScene" uid="uid://bg327gf087ncq" path="res://scenes/portals/portal.tscn" id="6_j2gmx"]
+[ext_resource type="PackedScene" uid="uid://dksgxwh0onvub" path="res://scenes/props/waterfall.tscn" id="8_dlabj"]
 [ext_resource type="PackedScene" uid="uid://dysfhat66rt3p" path="res://scenes/menus/pause_menu.tscn" id="9_1yooq"]
 [ext_resource type="PackedScene" uid="uid://bt10beutkd4o1" path="res://scenes/player/player.tscn" id="9_gb53w"]
+[ext_resource type="PackedScene" uid="uid://uk46rbygdm3b" path="res://scenes/props/platform_small.tscn" id="9_mxkvs"]
 [ext_resource type="PackedScene" uid="uid://cilhfplmwkktv" path="res://scenes/ui/hud.tscn" id="10_gb53w"]
+[ext_resource type="PackedScene" uid="uid://by6p18od4kk3" path="res://scenes/props/platform_large.tscn" id="10_m114p"]
+[ext_resource type="PackedScene" uid="uid://cp80p1cgt3ssy" path="res://scenes/props/fontain.tscn" id="11_71ii3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wp5od"]
 
@@ -69,27 +73,63 @@ centered = false
 position = Vector2(0, 920)
 shape = SubResource("WorldBoundaryShape2D_wp5od")
 
+[node name="Waterfalls" type="Node2D" parent="." unique_id=382106519]
+
+[node name="Waterfall1" parent="Waterfalls" unique_id=2132824572 instance=ExtResource("8_dlabj")]
+position = Vector2(3150, 457)
+height = 500.0
+
+[node name="Waterfall2" parent="Waterfalls" unique_id=224265755 instance=ExtResource("8_dlabj")]
+position = Vector2(5202, 324)
+height = 610.0
+
+[node name="Platforms" type="Node2D" parent="." unique_id=1510276687]
+
+[node name="A" parent="Platforms" unique_id=1201543061 instance=ExtResource("9_mxkvs")]
+position = Vector2(2000, 770)
+
+[node name="B" parent="Platforms" unique_id=2016394188 instance=ExtResource("9_mxkvs")]
+position = Vector2(2420, 630)
+
+[node name="L1" parent="Platforms" unique_id=1934770646 instance=ExtResource("10_m114p")]
+position = Vector2(2950, 520)
+
+[node name="C" parent="Platforms" unique_id=1562487703 instance=ExtResource("9_mxkvs")]
+position = Vector2(3700, 780)
+
+[node name="D" parent="Platforms" unique_id=596413819 instance=ExtResource("9_mxkvs")]
+position = Vector2(4100, 640)
+
+[node name="E" parent="Platforms" unique_id=1454667944 instance=ExtResource("9_mxkvs")]
+position = Vector2(4480, 500)
+
+[node name="L2" parent="Platforms" unique_id=781573400 instance=ExtResource("10_m114p")]
+position = Vector2(5000, 390)
+
+[node name="Fontain" parent="." unique_id=281068914 instance=ExtResource("11_71ii3")]
+position = Vector2(800, 920)
+
 [node name="Portals" type="Node2D" parent="." unique_id=1509890323]
 
 [node name="Portal" parent="Portals" unique_id=14302112 instance=ExtResource("6_j2gmx")]
-position = Vector2(1400, 950)
+position = Vector2(1400, 930)
 portal_name = "Foret Mysterieuse"
 
 [node name="Portal2" parent="Portals" unique_id=1234114584 instance=ExtResource("6_j2gmx")]
-position = Vector2(2900, 950)
+position = Vector2(2828, 452)
 portal_name = "Desert volcanique"
 arena_id = 2
 
 [node name="Portal3" parent="Portals" unique_id=1520572126 instance=ExtResource("6_j2gmx")]
-position = Vector2(4400, 950)
+position = Vector2(4920, 329)
 portal_name = "Antre de la Reine"
 arena_id = 3
-
-[node name="PauseMenu" parent="." unique_id=290932077 instance=ExtResource("9_1yooq")]
-visible = false
 
 [node name="Player" parent="." unique_id=1815030934 instance=ExtResource("9_gb53w")]
 position = Vector2(300, 920)
 level_width = 5760.0
 
 [node name="HUD" parent="." unique_id=411967270 instance=ExtResource("10_gb53w")]
+
+[node name="PauseMenu" parent="." unique_id=290932077 instance=ExtResource("9_1yooq")]
+visible = false

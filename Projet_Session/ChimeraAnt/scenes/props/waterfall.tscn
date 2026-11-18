@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dksgxwh0onvub"]
+
+[ext_resource type="Script" uid="uid://dpi6wn1c0qgnl" path="res://scripts/props/waterfall.gd" id="1_54p4d"]
+[ext_resource type="Texture2D" uid="uid://dh2t83nxu8okl" path="res://assets/props/waterfall_sheet.png" id="2_dpqm6"]
+[ext_resource type="Texture2D" uid="uid://g14g7vunvnbc" path="res://assets/props/waterfall_foam.png" id="3_2f2g2"]
+[ext_resource type="AudioStream" uid="uid://t6psyoi0s1jw" path="res://assets/audio/sfx/waterfall_loop.wav" id="4_edb8l"]
+
+[node name="Waterfall" type="Node2D" unique_id=2132824572]
+script = ExtResource("1_54p4d")
+
+[node name="Stream" type="Sprite2D" parent="." unique_id=271594334]
+position = Vector2(-75, 0)
+texture = ExtResource("2_dpqm6")
+centered = false
+hframes = 8
+
+[node name="Foam" type="Sprite2D" parent="." unique_id=1485888616]
+texture = ExtResource("3_2f2g2")
+hframes = 8
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="." unique_id=725242947]
+stream = ExtResource("4_edb8l")
+max_distance = 1400.0
+bus = &"SFX"

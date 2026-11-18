@@ -45,4 +45,4 @@ func _unhandled_input(event: InputEvent) -> void:
 		if arena_id == 0:
 			GameState.return_to_hub()
 		else:
-			GameState.enter_arena(arena_id, global_position + Vector2(180, 0))
+			GameState.enter_arena(arena_id, global_position + Vector2(180, -60))

@@ -118,6 +118,13 @@ func take_damage(amount: int, from_x: float = global_position.x) -> void:
 	invincible_left = INVINCIBILITY_TIME
 	anim.play("hurt")
 
+## Rend de la vie (fontaine de soins…)
+func heal(amount: int) -> void:
+	GameState.player_health = mini(GameState.player_health + amount, GameState.player_max_health)
+	health_changed.emit(GameState.player_health, GameState.player_max_health)
+	# Petit flash vert
+	anim.modulate = Color(0.7, 1.5, 0.9)
+	create_tween().tween_property(anim, "modulate", Color.WHITE, 0.5)
 
 func _update_invincibility(delta: float) -> void:
 	if invincible_left <= 0.0:
