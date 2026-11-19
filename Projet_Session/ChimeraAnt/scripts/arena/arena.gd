@@ -90,3 +90,4 @@ func _on_arena_cleared() -> void:
 	title_label.text = "Victoire !"
 	_show_title()
 	Audio.play_sfx("victory", 0.0)
+	GameState.add_xp(GameState.ARENA_CLEAR_XP)  

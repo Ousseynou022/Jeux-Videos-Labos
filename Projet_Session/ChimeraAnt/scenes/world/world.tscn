@@ -81,7 +81,7 @@ height = 500.0
 
 [node name="Waterfall2" parent="Waterfalls" unique_id=224265755 instance=ExtResource("8_dlabj")]
 position = Vector2(5007, 592)
-height = 590.0
+height = 250.0
 metadata/_edit_group_ = true
 
 [node name="Platforms" type="Node2D" parent="." unique_id=1510276687]
@@ -111,17 +111,19 @@ position = Vector2(800, 920)
 [node name="Portals" type="Node2D" parent="." unique_id=1509890323]
 
 [node name="Portal" parent="Portals" unique_id=14302112 instance=ExtResource("6_j2gmx")]
-position = Vector2(1400, 930)
+position = Vector2(1400, 920)
 portal_name = "Foret Mysterieuse"
 
 [node name="Portal2" parent="Portals" unique_id=1234114584 instance=ExtResource("6_j2gmx")]
 position = Vector2(2828, 452)
 portal_name = "Desert volcanique"
+required_level = 2
 arena_id = 2
 
 [node name="Portal3" parent="Portals" unique_id=1520572126 instance=ExtResource("6_j2gmx")]
 position = Vector2(4725, 597)
 portal_name = "Antre de la Reine"
+required_level = 3
 arena_id = 3
 metadata/_edit_group_ = true
 

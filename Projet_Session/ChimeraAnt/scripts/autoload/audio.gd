@@ -19,6 +19,7 @@ const SFX := {
 	"ui_select": preload("res://assets/audio/sfx/ui_select.wav"),
 	"victory": preload("res://assets/audio/sfx/victory.wav"),
 	"heal": preload("res://assets/audio/sfx/heal.wav"),
+	"level_up": preload("res://assets/audio/sfx/level_up.wav"),
 }
 
 # Réglage du volume de chaque son (en décibels, 0 = normal, -6 = moitié moins fort)

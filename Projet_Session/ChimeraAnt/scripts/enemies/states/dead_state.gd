@@ -1,6 +1,5 @@
 extends State
-## MORT : animation de mort, puis disparition en fondu. État final.
-
+## MORT 
 var fading := false
 
 
@@ -8,8 +7,9 @@ func enter() -> void:
 	enemy.velocity.x = 0.0
 	enemy.anim.play("death")
 	Audio.play_sfx("enemy_death", 0.2)
-	enemy.collision_layer = 0          # on ne peut plus la toucher
+	enemy.collision_layer = 0          
 	enemy.remove_from_group("enemies")
+	GameState.add_xp(enemy.xp_reward)
 	enemy.died.emit()
 
 

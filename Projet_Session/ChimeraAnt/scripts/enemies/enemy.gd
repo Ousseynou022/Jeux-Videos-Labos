@@ -1,17 +1,19 @@
 class_name Enemy
 extends CharacterBody2D
-## Ennemi de base. Le COMPORTEMENT est entièrement géré par la StateMachine.
+## Ennemi de base
 
 signal died
 
 @export var max_health := 3
 @export var patrol_speed := 120.0
 @export var chase_speed := 260.0
-@export var patrol_distance := 250.0  # demi-largeur de la zone de patrouille
-@export var detect_range := 550.0     # distance où il repère le joueur
-@export var attack_range := 130.0     # distance où il attaque
-@export var attack_cooldown := 1.2    # secondes entre deux attaques
+@export var patrol_distance := 250.0 
+@export var detect_range := 550.0    
+@export var attack_range := 130.0     
+@export var attack_cooldown := 1.2    
 @export var damage := 10
+@export var xp_reward := 25 
+		  
 
 var health := 0
 var player: Player = null
