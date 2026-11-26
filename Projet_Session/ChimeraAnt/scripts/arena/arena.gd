@@ -2,6 +2,7 @@ extends Node2D
 
 const FOURMI_SOLDAT := preload("res://scenes/enemies/fourmi_soldat.tscn")
 const FOURMI_AILEE := preload("res://scenes/enemies/fourmi_ailee.tscn")
+const REINE := preload("res://scenes/enemies/reine.tscn")
 
 const ARENAS := {
 	1: {
@@ -22,14 +23,14 @@ const ARENAS := {
 		"spawn_spacing": 110.0,
 		"spawn_height": 300.0,   # en vol
 	},
-	3: {
+		3: {
 		"name": "Arène de la lune rouge",
 		"background": preload("res://assets/backgrounds/arenas/arene_reine.png"),
 		"floor_y": 745.0,
-		"enemy_scene": null,   
-		"enemy_count": 0,
+		"enemy_scene": REINE,
+		"enemy_count": 1,
 		"spawn_spacing": 0.0,
-		"spawn_height": 0.0,  
+		"spawn_height": 0.0,
 	},
 }
 

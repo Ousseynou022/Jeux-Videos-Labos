@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://d4liioxe1ah0w"]
+
+[ext_resource type="Script" uid="uid://cghktmbuboyyh" path="res://scripts/enemies/enemy.gd" id="1_pmeyk"]
+[ext_resource type="SpriteFrames" uid="uid://cm8cnxtu2ms8" path="res://assets/enemies/reine/reine_frames.tres" id="2_pmeyk"]
+[ext_resource type="Script" uid="uid://d4a7au21nxy0r" path="res://scripts/enemies/state_machine.gd" id="3_741w2"]
+[ext_resource type="Script" uid="uid://dir54n1w58kmu" path="res://scripts/enemies/states/patrol_state.gd" id="4_e5y8c"]
+[ext_resource type="Script" uid="uid://dh0ugul24popo" path="res://scripts/enemies/states/chase_state.gd" id="5_ryide"]
+[ext_resource type="Script" uid="uid://cnuprpbmsq7hx" path="res://scripts/enemies/states/attack_state.gd" id="6_06flt"]
+[ext_resource type="Script" uid="uid://baqtsgy61xdhv" path="res://scripts/enemies/states/hurt_state.gd" id="7_ael8r"]
+[ext_resource type="Script" uid="uid://b8nc7kncojwhs" path="res://scripts/enemies/states/dead_state.gd" id="8_2j6xc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y74j6"]
+size = Vector2(220, 400)
+
+[node name="Reine" type="CharacterBody2D" unique_id=1928848890]
+collision_layer = 4
+script = ExtResource("1_pmeyk")
+max_health = 25
+chase_speed = 180.0
+detect_range = 5000.0
+attack_range = 230.0
+attack_cooldown = 1.5
+damage = 20
+xp_reward = 200
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=740698797]
+position = Vector2(0, -209)
+scale = Vector2(2.5, 2.5)
+sprite_frames = ExtResource("2_pmeyk")
+animation = &"attack"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1307360525]
+position = Vector2(0, -200)
+shape = SubResource("RectangleShape2D_y74j6")
+
+[node name="StateMachine" type="Node" parent="." unique_id=386274708 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_741w2")
+initial_state = NodePath("Chase")
+
+[node name="Patrol" type="Node" parent="StateMachine" unique_id=1571572482]
+script = ExtResource("4_e5y8c")
+
+[node name="Chase" type="Node" parent="StateMachine" unique_id=1298712960]
+script = ExtResource("5_ryide")
+
+[node name="Attack" type="Node" parent="StateMachine" unique_id=439854739]
+script = ExtResource("6_06flt")
+
+[node name="Hurt" type="Node" parent="StateMachine" unique_id=272216182]
+script = ExtResource("7_ael8r")
+
+[node name="Dead" type="Node" parent="StateMachine" unique_id=1623530147]
+script = ExtResource("8_2j6xc")
